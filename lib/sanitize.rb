@@ -111,6 +111,8 @@ class Sanitize
     if @config[:output] == :xhtml
       output_method = fragment.method(:to_xhtml)
       output_method_params[:save_with] = Nokogiri::XML::Node::SaveOptions::AS_XHTML
+    elsif @config[:output] == :xml
+      output_method = fragment.method(:to_xml)
     elsif @config[:output] == :html
       output_method = fragment.method(:to_html)
     else
